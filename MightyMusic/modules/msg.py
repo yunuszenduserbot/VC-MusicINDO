@@ -7,19 +7,18 @@
 # Creator And Contributor
 
 import os
-from MightyMusic.config import ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,OWNER_USERNAME
 class Messages():
       START_MSG = "**Hallo [{}](tg://user?id={})!**\n━━━━━━━━━━━━━━━━━━━━━━━━\n📮 Saya adalah bot canggih yang dibuat untuk memutar musik di obrolan suara Grup & Saluran Channel Telegram.\n\n📝 Ketik /help untuk mendapat info dari saya.\n━━━━━━━━━━━━━━━━━━━━━━━━\n🎻 Selamat menikmati sensasi mendengarkan musik di VC GROUP/ CHANNEL kamu."
       HELP_MSG = [
         ".",
 f"""
-**Hy lagi kamu bertemu lagi dengan saya {PROJECT_NAME}
+**Hy lagi kamu bertemu lagi dengan saya Zend Project
 
-⚪️ {PROJECT_NAME} bisa memutar musik baik itu di VC Group atau VC Channel
+⚪️ Zend Project bisa memutar musik baik itu di VC Group atau VC Channel
 
-⚪️ Nama Asisten >> @{ASSISTANT_NAME}\n\nKlik tombol dibawah untuk melihat intruksi lain**
-◎› Owner Bot >> @{OWNER_USERNAME}
-◎› Owner Project >> @ZendYNS
+⚪️ Nama Asisten >> [Zend Assisten](https://t.me/ZendMusic)\n\nKlik tombol dibawah untuk melihat intruksi lain**
+◎› Owner Bot >> [Yunus Zend](https://t.me/ZendYNS)
+◎› Bot Musik >> [Zend Bot](https://t.me/ZendMusic_Bot)
 """,
 
 f"""
@@ -28,7 +27,7 @@ f"""
 1) Membuat bot admin (Group dan di channel jika menggunakan cplay)
 2) Mulai obrolan suara
 3) Coba /play [nama lagu] pertama kali oleh admin
-*) Jika userbot bergabung nikmati musik, Jika tidak tambahkan @{ASSISTANT_NAME} ke grup Anda dan coba lagi
+*) Jika userbot bergabung nikmati musik, Jika tidak tambahkan @ZendMusic ke grup Anda dan coba lagi
 
 **Untuk Channel Music Play**
 1) Jadikan saya admin saluran Anda
@@ -82,7 +81,7 @@ saluran Channel juga dapat digunakan sebagai pengganti c ( /cplay = /channelplay
 1) Dapatkan ID saluran Anda.
 2) Buat grup dengan judul: Channel Music: your_channel_id
 3) Tambahkan bot sebagai admin Saluran dengan izin penuh
-4) Tambahkan @{ASSISTANT_NAME} ke saluran sebagai admin.
+4) Tambahkan @ZendMusic ke saluran sebagai admin.
 5) Cukup kirim perintah di grup Anda.
 """,
 
@@ -90,7 +89,7 @@ f"""
 **◎› More Info 📲**
 
 • /admincache: Memperbarui info admin grup Anda. Coba jika bot tidak mengenali admin
-• /userbotjoin: Undang @{ASSISTANT_NAME} Userbot ke obrolan Anda
+• /userbotjoin: Undang @ZendMusic Userbot ke obrolan Anda
 
 **◎› 📝 Command Khusus buat pengguna sudo**
 
