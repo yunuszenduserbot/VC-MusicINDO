@@ -28,7 +28,6 @@ from MightyMusic.modules.play import time_to_seconds
 from MightyMusic.modules.play import changeImageSize
 from MightyMusic.config import BOT_NAME as bn
 from MightyMusic.config import DURATION_LIMIT
-from MightyMusic.config import SUPPORT_CHANNEL as updateschannel
 from MightyMusic.config import que
 from MightyMusic.function.admins import admins as a
 from MightyMusic.helpers.errors import DurationLimitError
@@ -743,7 +742,7 @@ async def jiosaavn(client: Client, message_: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "DaisyMusic"
+        user.first_name = "ZendMusic"
     usar = user
     wew = usar.id
     try:
@@ -815,7 +814,7 @@ async def jiosaavn(client: Client, message_: Message):
             ],
             [
                 InlineKeyboardButton(
-                    text="Join Updates Channel", url=f"https://t.me/{updateschannel}"
+                    text="Join Updates Channel", url=f"https://t.me/IndoInfoBot"
                 )
             ],
             [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
