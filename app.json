@@ -36,6 +36,11 @@
       "description": "Api hash dari my.telegram.org/apps",
       "required": true
     },
+    "BOT_NAME": {
+      "description": "Nama Bot MusicPlayer Anda.",
+      "required": false,
+      "value": "Zend Music"
+    },
     "SUDO_USERS": {
       "description": "Daftar ID pengguna dihitung sebagai admin di mana-mana (jangan pake spasi yah).",
       "required": true
