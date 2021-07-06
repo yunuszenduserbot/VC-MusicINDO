@@ -10,7 +10,7 @@ import logging
 from MightyMusic.modules.msg import Messages as tr
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from MightyMusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,SUPPORT_CHANNEL,BOT_USERNAME,OWNER_USERNAME
+from MightyMusic.config import SOURCE_CODE
 logging.basicConfig(level=logging.INFO)
 
 @Client.on_message(filters.private & filters.incoming & filters.command(['start']))
@@ -22,14 +22,14 @@ def _start(client, message):
             [
                 [
                     InlineKeyboardButton(
-                        "📝 Tambahkan saya ke group", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+                        "📝 Tambahkan saya ke group", url=f"https://t.me/ZendMusic_Bot?startgroup=true")],
                 [
                     InlineKeyboardButton(
-                        "📮 Channel", url=f"https://t.me/{SUPPORT_CHANNEL}"), 
+                        "📮 Channel", url=f"https://t.me/IndoInfoBot"), 
                     InlineKeyboardButton(
-                        "🏷 Group", url=f"https://t.me/{SUPPORT_GROUP}"),
+                        "🏷 Group", url=f"https://t.me/KingUserbotSupport"),
                     InlineKeyboardButton(
-                        "✏️ Owner", url=f"https://t.me/{OWNER_USERNAME}")
+                        "✏️ Owner", url=f"https://t.me/ZendYNS")
                 ]
             ]
         ),
@@ -39,12 +39,12 @@ def _start(client, message):
 @Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
     await message.reply_text(
-        f"""**🔴 {PROJECT_NAME} telah diaktifkan**""",
+        f"""**🔴 Zend Project telah diaktifkan**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🏷 Owner Bot", url=f"https://t.me/{OWNER_USERNAME}"
+                        "🏷 Owner Bot", url=f"https://t.me/ZendYNS"
                     )
                 ]
             ]
@@ -84,10 +84,10 @@ def map(pos):
     elif(pos==len(tr.HELP_MSG)-1):
         url = f"https://t.me/{SUPPORT_GROUP}"
         button = [
-            [InlineKeyboardButton("📝 Tambahkan saya ke group", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
-            [InlineKeyboardButton(text = '📮 Channel', url=f"https://t.me/{SUPPORT_CHANNEL}"),
-             InlineKeyboardButton(text = '🏷 Group', url=f"https://t.me/{SUPPORT_GROUP}")],
-            [InlineKeyboardButton(text = '💡 Owner Bot', url=f"https://t.me/{OWNER_USERNAME}"),
+            [InlineKeyboardButton("📝 Tambahkan saya ke group", url=f"https://t.me/ZendMusic_Bot?startgroup=true")],
+            [InlineKeyboardButton(text = '📮 Channel', url=f"https://t.me/IndoInfoBot"),
+             InlineKeyboardButton(text = '🏷 Group', url=f"https://t.me/KingUserbotSupport")],
+            [InlineKeyboardButton(text = '💡 Owner Bot', url=f"https://t.me/ZendYNS"),
              InlineKeyboardButton(text = '✏️ Owner Project', url=f"https://t.me/ZendYNS")],
             [InlineKeyboardButton(text = 'Kembali', callback_data = f"help+{pos-1}")]
         ]
@@ -108,7 +108,7 @@ async def ghelp(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "📮 Klik disini untuk bantuan", url=f"https://t.me/{BOT_USERNAME}?start"
+                        "📮 Klik disini untuk bantuan", url=f"https://t.me/ZendMusic_Bot?start"
                     )
                 ]
             ]
