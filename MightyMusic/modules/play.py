@@ -24,11 +24,8 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 
-from MightyMusic.config import ARQ_API_KEY, ASSISTANT_NAME
-from MightyMusic.config import BOT_NAME as bn
+from MightyMusic.config import ARQ_API_KEY
 from MightyMusic.config import DURATION_LIMIT
-from MightyMusic.config import SUPPORT_CHANNEL as updateschannel
-from MightyMusic.config import OWNER_USERNAME as own
 from MightyMusic.config import que
 from MightyMusic.function.admins import admins as a
 from MightyMusic.helpers.admins import get_administrators
@@ -108,17 +105,6 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     image6 = image4.convert("RGBA")
     Image.alpha_composite(image5, image6).save("temp.png")
     img = Image.open("temp.png")
-    draw = ImageDraw.Draw(img)
-    font = ImageFont.truetype("etc/font.otf", 32)
-    draw.text((205, 550), f"Judul: {title}", (51, 215, 255), font=font)
-    draw.text((205, 590), f"Durasi: {duration}", (255, 255, 255), font=font)
-    draw.text((205, 630), f"Dilihat: {views}", (255, 255, 255), font=font)
-    draw.text(
-        (205, 670),
-        f"Request dari: {requested_by}",
-        (255, 255, 255),
-        font=font,
-    )
     img.save("final.png")
     os.remove("temp.png")
     os.remove("background.png")
@@ -136,8 +122,8 @@ async def playlist(client, message):
     now_playing = temp[0][0]
     by = temp[0][1].mention(style="md")
     msg = "**Sekarang Dimainkan** di {}".format(message.chat.title)
-    msg += "\n◎› " + now_playing
-    msg += "\n◎› Request dari " + by
+    msg += "\n❏ " + now_playing
+    msg += "\n❏ Request dari " + by
     temp.pop(0)
     if temp:
         msg += "\n\n"
@@ -145,8 +131,8 @@ async def playlist(client, message):
         for song in temp:
             name = song[0]
             usr = song[1].mention(style="md")
-            msg += f"\n◎› {name}"
-            msg += f"\n◎› Request dari {usr}\n"
+            msg += f"\n❏ {name}"
+            msg += f"\n❏ Request dari {usr}\n"
     await message.reply_text(msg)
 
 
@@ -237,8 +223,8 @@ async def p_cb(b, cb):
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
         msg = "**Sekarang dimainkan** di {}".format(cb.message.chat.title)
-        msg += "\n◎› " + now_playing
-        msg += "\n◎› Req dari " + by
+        msg += "\n❏ " + now_playing
+        msg += "\n❏ Req dari " + by
         temp.pop(0)
         if temp:
             msg += "\n\n"
@@ -246,8 +232,8 @@ async def p_cb(b, cb):
             for song in temp:
                 name = song[0]
                 usr = song[1].mention(style="md")
-                msg += f"\n◎› {name}"
-                msg += f"\n◎› Req dari {usr}\n"
+                msg += f"\n❏ {name}"
+                msg += f"\n❏ Req dari {usr}\n"
         await cb.message.edit(msg)
 
 
@@ -305,8 +291,8 @@ async def m_cb(b, cb):
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
         msg = "**Sekarang dimainkan** di {}".format(cb.message.chat.title)
-        msg += "\n◎› " + now_playing
-        msg += "\n◎› Req dari " + by
+        msg += "\n❏ " + now_playing
+        msg += "\n❏ Req dari " + by
         temp.pop(0)
         if temp:
             msg += "\n\n"
@@ -314,8 +300,8 @@ async def m_cb(b, cb):
             for song in temp:
                 name = song[0]
                 usr = song[1].mention(style="md")
-                msg += f"\n◎› {name}"
-                msg += f"\n◎› Req dari {usr}\n"
+                msg += f"\n❏ {name}"
+                msg += f"\n❏ Req dari {usr}\n"
         await cb.message.edit(msg)
 
     elif type_ == "resume":
@@ -439,7 +425,7 @@ async def play(_, message: Message):
                     # print(e)
                     await lel.edit(
                         f"<b>🔴 Flood Wait Error 🔴 \nPengguna {user.first_name} tidak dapat bergabung dengan grup Anda karena banyak permintaan untuk userbot! Pastikan pengguna tidak dibanned di grup."
-                        f"\n\nAtau tambahkan asisten {ASSISTANT_NAME} secara manual ke Group dan coba lagi</b>",
+                        f"\n\nAtau tambahkan asisten @ZendMusic secara manual ke Group dan coba lagi</b>",
                     )
     try:
         await USER.get_chat(chid)
@@ -534,13 +520,12 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Playlist", callback_data="playlist"),
-                    InlineKeyboardButton("Menu", callback_data="menu"),
-                    InlineKeyboardButton(text="Owner", url=f"https://t.me/{own}"),
+                    InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
+                    InlineKeyboardButton(text="🛹 Owner", url=f"https://t.me/ZendYNS"),
                 ],
                 [
-                    InlineKeyboardButton(text="Update", url=f"https://t.me/Indoinfobot"),
-                    InlineKeyboardButton(text="Tutup", callback_data="cls")
+                    InlineKeyboardButton(text="💡 Update", url=f"https://t.me/Indoinfobot"),
+                    InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")
                 ],
             ]
         )
@@ -578,13 +563,12 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("Playlist", callback_data="playlist"),
-                    InlineKeyboardButton("Menu", callback_data="menu"),
-                    InlineKeyboardButton(text="Owner", url=f"https://t.me/{own}"),
+                    InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
+                    InlineKeyboardButton(text="🛹 Owner", url=f"https://t.me/ZendYNS"),
                 ],
                 [
-                    InlineKeyboardButton(text="Update", url=f"https://t.me/Indoinfobot"),
-                    InlineKeyboardButton(text="Tutup", callback_data="cls")
+                    InlineKeyboardButton(text="💡 Update", url=f"https://t.me/Indoinfobot"),
+                    InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")
                 ],
             ]
         )
@@ -604,7 +588,7 @@ async def play(_, message: Message):
             photo="final.png",
             reply_markup=keyboard,
             caption = f"🏷 **Judul:** [{title[:23]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Antrian Ke `{position}`\n" \
-                    + f"🎧 **Request Dari: **{requested_by}".format(
+                    + f"🎧 **Permintaan: **{requested_by}".format(
         message.from_user.mention()
         ),    
     )
@@ -628,7 +612,7 @@ async def play(_, message: Message):
             photo="final.png",
             reply_markup=keyboard,
             caption = f"🏷 **Judul:** [{title[:23]}]({url})\n⏱ **Durasi:** {duration}\n💡 **Status:** Sedang dimainkan\n" \
-                    + f"🎧 **Request Dari: **{requested_by}".format(
+                    + f"🎧 **Permintaan: **{requested_by}".format(
         message.from_user.mention()
         ),
     )
@@ -682,7 +666,7 @@ async def deezer(client: Client, message_: Message):
                     # print(e)
                     await lel.edit(
                         f"<b>🔴 Flood Wait Error 🔴 \nPengguna {user.first_name} tidak dapat bergabung dengan grup Anda karena banyak permintaan untuk userbot! Pastikan pengguna tidak dibanned di grup."
-                        f"\n\nAtau tambahkan asisten {ASSISTANT_NAME} bot secara manual ke Group dan coba lagi</b>",
+                        f"\n\nAtau tambahkan asisten @ZendMusic bot secara manual ke Group dan coba lagi</b>",
                     )
     try:
         await USER.get_chat(chid)
@@ -810,7 +794,7 @@ async def jiosaavn(client: Client, message_: Message):
                     # print(e)
                     await lel.edit(
                         f"<b>🔴 Flood Wait Error 🔴 \nPengguna {user.first_name} tidak dapat bergabung dengan grup Anda karena banyak permintaan untuk userbot! Pastikan pengguna tidak dibanned di grup."
-                        f"\n\nAtau tambahkan asisten {ASSISTANT_NAME} secara manual ke Group dan coba lagi</b>",
+                        f"\n\nAtau tambahkan asisten @ZendMusic secara manual ke Group dan coba lagi</b>",
                     )
     try:
         await USER.get_chat(chid)
@@ -848,7 +832,7 @@ async def jiosaavn(client: Client, message_: Message):
             ],
             [
                 InlineKeyboardButton(
-                    text="Join Updates Channel", url=f"https://t.me/{updateschannel}"
+                    text="Join Updates Channel", url=f"https://t.me/IndoInfoBot"
                 )
             ],
             [InlineKeyboardButton(text="🗑 Tutup", callback_data="cls")],
