@@ -21,7 +21,7 @@
     "BG_IMAGE": {
       "description": "Background untuk bot musik kamu (Anda bisa menggunakan BG transparan) kalo ga ada biarin aja biar pake background buatan aku :v [IGNORE].",
       "required": false,
-      "value": "https://telegra.ph/file/22e0ea77281d18134fe5a.png"
+      "value": "https://telegra.ph/file/b40964d65bd3b337dce90.png"
     },   
     "API_ID": {
       "description": "App ID dari my.telegram.org/apps",
